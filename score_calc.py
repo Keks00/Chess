@@ -3,20 +3,21 @@ from moves import enemy_figue_choise
 
 def calc_values(risks,slots): 
     point_map = {}
-    for key,value in risks.items():
-        value_str = (str(value)).strip("-")
-        if value_str[:1] != "1":
-            value_str = "2" + value_str
+
+    for key,value in risks[value]["type"].items():
+
+        if value != 1:
+            value = "2" + value
         point_map[key] = 0
         try:
-            if value_str[1:] == "2":
+            if value == 2:
                 point_map[key] = 10
                 if value < 0:
                     point_map[key] = -abs(point_map[key])
         except: TypeError
         
         try:
-            if value_str[1:] in ["3","4"]:
+            if value in [3,4]:
                 point_map[key] = 30
                 if value < 0:
                     point_map[key] = -abs(point_map[key])
@@ -24,37 +25,60 @@ def calc_values(risks,slots):
         except: TypeError
 
         try:
-            if value_str[1:] == "5":
+            if value == 5:
                 point_map[key] = 50
                 if value < 0:
                     point_map[key] = -abs(point_map[key])
         except: TypeError
 
         try:
-            if value_str[1:] == "6":
+            if value == 6:
+
                 point_map[key] = 90
                 if value < 0:
                     point_map[key] = -abs(point_map[key])
         except: TypeError
 
         try:
-            if value_str[1:] == "7":
+            if value == 7:
                 point_map[key] = 900
                 if value < 0:
                     point_map[key] = -abs(point_map[key])
         except: TypeError
     overall_score(point_map)
-    best_move = max(point_map.items(), key=operator.itemgetter(1))
-    enemy_figue_choise(best_move,slots)
+    print(point_map)
+    best_move = max(point_map.items(), key=operator.itemgetter(1))[0]
+    f_slot,sucess = enemy_figue_choise(best_move,slots)
+    if sucess == False:
+        recalc(best_move,risks,slots)
+        exit
+    
+    print("From: ",f_slot,"To: ",best_move)
+
     return point_map
 
 
 
 # combines risks and the pointmap together
-def point_map(point_map,risks):
-    True
+
+
 def overall_score(point_map):
     score = []
     for key,value in point_map.items():
         score.append(value)
     score = sum(score)
+    print(score)
+
+def figure(pieces):
+    if len(pieces) == 0:
+        return 0, True
+    best_move = max(pieces)
+    print(best_move)
+    return best_move, True
+
+# if no figure is ideal
+def recalc(best_move,risks,slots):
+    del risks[best_move]
+    print("!!!")
+    print(risks)
+    calc_values(risks,slots)
