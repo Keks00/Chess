@@ -1,16 +1,24 @@
 # chess board
 def chess_board(slots):
     print("\t\t\t  Chess Board")    
-    print("\t\t     a  b  c  d  e  f  g  h")
-    print("\t\t8  |%s|%s|%s|%s|%s|%s|%s|%s|" % (slots["81"],slots["82"],slots["83"],slots["84"],slots["85"],slots["86"],slots["87"],slots["88"]))
-    print("\t\t7  |%s|%s|%s|%s|%s|%s|%s|%s|" % (slots["71"],slots["72"],slots["73"],slots["74"],slots["75"],slots["76"],slots["77"],slots["78"]))
-    print("\t\t6  |%s|%s|%s|%s|%s|%s|%s|%s|" % (slots["61"],slots["62"],slots["63"],slots["64"],slots["65"],slots["66"],slots["67"],slots["68"]))
-    print("\t\t5  |%s|%s|%s|%s|%s|%s|%s|%s|" % (slots["51"],slots["52"],slots["53"],slots["54"],slots["55"],slots["56"],slots["57"],slots["58"]))
-    print("\t\t4  |%s|%s|%s|%s|%s|%s|%s|%s|" % (slots["41"],slots["42"],slots["43"],slots["44"],slots["45"],slots["46"],slots["47"],slots["48"]))
-    print("\t\t3  |%s|%s|%s|%s|%s|%s|%s|%s|" % (slots["31"],slots["32"],slots["33"],slots["34"],slots["35"],slots["36"],slots["37"],slots["38"]))
-    print("\t\t2  |%s|%s|%s|%s|%s|%s|%s|%s|" % (slots["21"],slots["22"],slots["23"],slots["24"],slots["25"],slots["26"],slots["27"],slots["28"]))
-    print("\t\t1  |%s|%s|%s|%s|%s|%s|%s|%s|" % (slots["11"],slots["12"],slots["13"],slots["14"],slots["15"],slots["16"],slots["17"],slots["18"]))
-
+    print("\t\t     a   b   c   d   e   f   g   h")
+    print("\t\t   +---+---+---+---+---+---+---+---+")
+    print("\t\t8  | %s| %s| %s| %s| %s| %s| %s| %s|" % (slots["81"],slots["82"],slots["83"],slots["84"],slots["85"],slots["86"],slots["87"],slots["88"]))
+    print("\t\t   +---+---+---+---+---+---+---+---+")
+    print("\t\t7  | %s| %s| %s| %s| %s| %s| %s| %s|" % (slots["71"],slots["72"],slots["73"],slots["74"],slots["75"],slots["76"],slots["77"],slots["78"]))
+    print("\t\t   +---+---+---+---+---+---+---+---+")
+    print("\t\t6  | %s| %s| %s| %s| %s| %s| %s| %s|" % (slots["61"],slots["62"],slots["63"],slots["64"],slots["65"],slots["66"],slots["67"],slots["68"]))
+    print("\t\t   +---+---+---+---+---+---+---+---+")
+    print("\t\t5  | %s| %s| %s| %s| %s| %s| %s| %s|" % (slots["51"],slots["52"],slots["53"],slots["54"],slots["55"],slots["56"],slots["57"],slots["58"]))
+    print("\t\t   +---+---+---+---+---+---+---+---+")
+    print("\t\t4  | %s| %s| %s| %s| %s| %s| %s| %s|" % (slots["41"],slots["42"],slots["43"],slots["44"],slots["45"],slots["46"],slots["47"],slots["48"]))
+    print("\t\t   +---+---+---+---+---+---+---+---+")
+    print("\t\t3  | %s| %s| %s| %s| %s| %s| %s| %s|" % (slots["31"],slots["32"],slots["33"],slots["34"],slots["35"],slots["36"],slots["37"],slots["38"]))
+    print("\t\t   +---+---+---+---+---+---+---+---+")
+    print("\t\t2  | %s| %s| %s| %s| %s| %s| %s| %s|" % (slots["21"],slots["22"],slots["23"],slots["24"],slots["25"],slots["26"],slots["27"],slots["28"]))
+    print("\t\t   +---+---+---+---+---+---+---+---+")
+    print("\t\t1  | %s| %s| %s| %s| %s| %s| %s| %s|" % (slots["11"],slots["12"],slots["13"],slots["14"],slots["15"],slots["16"],slots["17"],slots["18"]))
+    print("\t\t   +---+---+---+---+---+---+---+---+")
 #reset
 def reset():
     slots = {

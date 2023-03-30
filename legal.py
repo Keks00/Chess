@@ -1,10 +1,7 @@
-import os
 from functions import type_conversion
-
 def checklegal(type_symbol,move,pos,slots):
     type = type_conversion(type_symbol)
     legal = False
-
     #defines x and y for the position the move and the relative coordinate change
     px = int(str(pos)[1:])
     py = int(str(pos)[:1])
@@ -21,13 +18,11 @@ def checklegal(type_symbol,move,pos,slots):
     elif type == "bishop":
         legal, move = check_bishop(px,py,relx,rely,legal,pos,move,slots)
     elif type == "knight":
-        legal = check_knight(px,py,relx,rely,legal,move)
+        legal = check_knight(px,py,relx,rely,legal)
     elif type == "queen":
         legal, move = check_queen(px,py,relx,rely,legal,pos,slots,move)
     elif type == "king":
         legal = check_king(px,py,relx,rely,legal)
-    if legal == True:
-        os.system("cls")
     return legal, move
 
 

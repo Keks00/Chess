@@ -1,3 +1,7 @@
+import sys
+import os 
+from display import chess_board
+
 def test_if_white(slots,move):
     sucess = False
     if slots[f"{move}"] in ["♜ ","♞ ","♝ ","♚ ","♛ ","♟ "]:
@@ -39,20 +43,41 @@ def turn_x_to_num(move,slots):
 def user_input(slots):
         sucess = False
         move_f = input("move from : ")
+
+        if move_f == "/l":
+            sys.exit("LEFT")
+
         move_f, sucess = turn_x_to_num(move_f,slots)
         if sucess == True:
             sucess = test_if_white(slots,move_f)
         while sucess == False:
             move_f = input("move from : ")
+            if move_f == "/l":
+                sys.exit("LEFT")
+
             move_f, sucess = turn_x_to_num(move_f,slots)
             if sucess == True:
                 sucess = test_if_white(slots,move_f)
 
         sucess = False
         move_t = input("move to : ")
+        if move_t == "/u":
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(chess_board(slots), "-Undo")
+            user_input(slots)
+        elif move_t == "/l":
+            sys.exit("LEFT")
+
         move_t, sucess = turn_x_to_num(move_t,slots)
         while sucess == False:
             move_t = input("move to : ")
+            if move_t == "/u":
+                os.system('cls' if os.name == 'nt' else 'clear')
+                print(chess_board(slots), "-Undo")
+                user_input(slots)
+            elif move_t == "/l":
+                sys.exit("LEFT")
+
             move_t, sucess = turn_x_to_num(move_t,slots)
         type = slots["%s" % (move_f)]
         return(move_f,move_t, type)
@@ -72,3 +97,5 @@ def type_conversion(type):
     elif type == "♚ ":
         type = "king"
     return type
+
+
